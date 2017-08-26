@@ -152,3 +152,15 @@ tipo varchar(40) not null
  INSERT INTO tipo_camisetas(tipo) value('malha-fria');
  INSERT INTO tipo_camisetas(tipo) value('manga-longa');
  INSERT INTO tipo_camisetas(tipo) value('polo');
+
+
+CREATE TABLE camisetas (
+id int not null auto_increment primary key,
+cor_id VARCHAR(40),
+FOREIGN KEY (cor_id) REFERENCES cor_camisetas(id_cor),
+tamanho_id varchar(4),  
+FOREIGN KEY (tamanho_id) REFERENCES tam_camisetas(id_tam),
+tip_id varchar(40),  
+FOREIGN KEY (tip_id) REFERENCES tipo_camisetas(id_tip),
+quantidade int not null
+);
