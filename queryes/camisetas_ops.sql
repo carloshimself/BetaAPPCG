@@ -1,7 +1,7 @@
---só dar ctrl+C aqui, ctrl+v no banco e rodar!
 
 CREATE TABLE cor_camisetas(
-id_cor INT NOT NULL PRIMARY KEY,
+id int not null AUTO_INCREMENT PRIMARY KEY,
+id_cor INT NOT NULL ,
 cor_cam VARCHAR(40) NOT NULL  
 );
 
@@ -143,24 +143,23 @@ id_tip int not null primary key auto_increment,
 tipo varchar(40) not null  
 );
 
- INSERT INTO tipo_camisetas(tipo) value('cavada');
- INSERT INTO tipo_camisetas(tipo) value('mercerizada');
- INSERT INTO tipo_camisetas(tipo) value('penteada');
- INSERT INTO tipo_camisetas(tipo) value('regata');
- INSERT INTO tipo_camisetas(tipo) value('polo-feminina');
- INSERT INTO tipo_camisetas(tipo) value('baby-look');
- INSERT INTO tipo_camisetas(tipo) value('malha-fria');
- INSERT INTO tipo_camisetas(tipo) value('manga-longa');
- INSERT INTO tipo_camisetas(tipo) value('polo');
-
+ INSERT INTO tipo_camisetas(tipo) values('cavada');
+ INSERT INTO tipo_camisetas(tipo) values('mercerizada');
+ INSERT INTO tipo_camisetas(tipo) values('penteada');
+ INSERT INTO tipo_camisetas(tipo) values('regata');
+ INSERT INTO tipo_camisetas(tipo) values('polo-feminina');
+ INSERT INTO tipo_camisetas(tipo) values('baby-look');
+ INSERT INTO tipo_camisetas(tipo) values('malha-fria');
+ INSERT INTO tipo_camisetas(tipo) values('manga-longa');
+ INSERT INTO tipo_camisetas(tipo) values('polo');
 
 CREATE TABLE camisetas (
 id int not null auto_increment primary key,
-cor_id VARCHAR(40),
-FOREIGN KEY (cor_id) REFERENCES cor_camisetas(id_cor),
-tamanho_id varchar(4),  
+cor_id int not null,
+FOREIGN KEY (cor_id) REFERENCES cor_camisetas(id),
+tamanho_id int not null,  
 FOREIGN KEY (tamanho_id) REFERENCES tam_camisetas(id_tam),
-tip_id varchar(40),  
+tip_id int not  null,  
 FOREIGN KEY (tip_id) REFERENCES tipo_camisetas(id_tip),
 quantidade int not null
 );
