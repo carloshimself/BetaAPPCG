@@ -1,0 +1,19 @@
+{
+  "name": "betaapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloshimself/BetaAPPCG.git"
+  },
+  "author": "Carlos Henrique, Gabriel Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carloshimself/BetaAPPCG/issues"
+  },
+  "homepage": "https://github.com/carloshimself/BetaAPPCG#readme"
+}
