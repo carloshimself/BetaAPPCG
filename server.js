@@ -28,6 +28,6 @@ app.get('/tipo',function(req,res){
   con.end();
 });
 
-app.listen('9090',function(){
-    console.log("Servidor Iniciado");
-});
+ http.listen(3000, function(){
+  console.log('listening on *:3000');
+ });
