@@ -2,7 +2,7 @@ var express  = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mysql      = require('mysql');
-
+var http = require('http').Server(app);
 
 app.get('/cor',function(req,res){
   var con = mysql.createConnection('mysql://root:root@localhost:3306/teste');
@@ -28,6 +28,6 @@ app.get('/tipo',function(req,res){
   con.end();
 });
 
- http.listen(8080, function(){
-  console.log('listening on *:8080');
- });
+http.listen(process.env.PORT || 8080, function(){
+  console.log('listening on', process.env.PORT|| 8080);
+});
