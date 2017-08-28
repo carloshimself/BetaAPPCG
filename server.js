@@ -17,6 +17,7 @@ app.get('/cor',function(req,res){
   con.end();
 });
 
+
 app.get('/tamanho',function(req,res){
   var con = app.app.connectionFactory();
   var camisas = new app.app.models.camisaDao(con);
@@ -28,6 +29,7 @@ app.get('/tamanho',function(req,res){
   con.end();
 });
 
+
 app.get('/tipo',function(req,res){
   var con = app.app.connectionFactory();
   var camisas = new app.app.models.camisaDao(con);
@@ -38,6 +40,7 @@ app.get('/tipo',function(req,res){
   
   con.end();
 });
+
 
 http.listen(process.env.PORT || 8080, function(){
   console.log('listening on', process.env.PORT|| 8080);
