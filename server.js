@@ -6,7 +6,7 @@ var consign = require('consign')
 consign().include('app').into(app);
 
 
-app.get('/cor',function(req,res){
+app.get('/camisa-list/cor',function(req,res){
   var con = app.app.connectionFactory();
   var camisas = new app.app.models.camisaDao(con);
   
@@ -18,7 +18,7 @@ app.get('/cor',function(req,res){
 });
 
 
-app.get('/tamanho',function(req,res){
+app.get('/camisa-list/tamanho',function(req,res){
   var con = app.app.connectionFactory();
   var camisas = new app.app.models.camisaDao(con);
   
@@ -30,7 +30,7 @@ app.get('/tamanho',function(req,res){
 });
 
 
-app.get('/tipo',function(req,res){
+app.get('/camisa-list/tipo',function(req,res){
   var con = app.app.connectionFactory();
   var camisas = new app.app.models.camisaDao(con);
   
@@ -42,8 +42,8 @@ app.get('/tipo',function(req,res){
 });
 
 
-http.listen(process.env.PORT || 8080, function(){
-  console.log('listening on', process.env.PORT|| 8080);
+http.listen(process.env.PORT || 9090, function(){
+  console.log('listening on', process.env.PORT|| 9090);
 });
 
 //Username: user3HC
