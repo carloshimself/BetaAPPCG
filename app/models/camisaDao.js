@@ -2,33 +2,33 @@ function CamisaDao(connection) {
     this._connection = connection;
 }
 //register operations
-CamisaDao.prototype.cadastraCamisa = function(cor) {
-    this._connection.query('INSERT INTO camisetas (cor_id,tamanho_id,tip_id,quantidade) values(?,?,?,?)',cor.cor_id,cor.tamanho,cor.tip_id,cor.quantidade);
+CamisaDao.prototype.cadastraCamisa = function(camisa) {
+    this._connection.query('INSERT INTO camisetas (cor_id,tamanho_id,tip_id,quantidade) values(?,?,?,?)',camisa.cor_id,camisa.tamanho,camisa.tip_id,camisa.quantidade);
 }
 
-CamisaDao.prototype.atualizaCamisa = function(cor) {
-    this._connection.query('UPDATE camisetas (cor_id,tamanho_id,tip_id,quantidade) values(?,?,?,?)',cor.cor_id,cor.tamanho,cor.tip_id,cor.quantidade);
+CamisaDao.prototype.atualizaCamisa = function(camisa,callback) {
+    this._connection.query('UPDATE camisetas (cor_id,tamanho_id,tip_id,quantidade) values(?,?,?,?)',camisa.cor_id,camisa.tamanho,camisa.tip_id,camisa.quantidade);
 }
 
 //SAVE OPERATIONS
-CamisaDao.prototype.salvaCor = function(cor,callback) {
-    this._connection.query('INSERT INTO cor_camisetas SET ?', cor, callback);
+CamisaDao.prototype.salvaCor = function(camisa,callback) {
+    this._connection.query('INSERT INTO cor_camisetas SET ?', camisa, callback);
 }
-CamisaDao.prototype.salvaTipo = function(cor,callback) {
-    this._connection.query('INSERT INTO cor_camisetas SET ?', cor, callback);
+CamisaDao.prototype.salvaTipo = function(camisa,callback) {
+    this._connection.query('INSERT INTO cor_camisetas SET ?', camisa, callback);
 }
-CamisaDao.prototype.salvaTamanho = function(cor,callback) {
-    this._connection.query('INSERT INTO cor_camisetas SET ?', cor, callback);
+CamisaDao.prototype.salvaTamanho = function(camisa,callback) {
+    this._connection.query('INSERT INTO cor_camisetas SET ?', camisa, callback);
 }
 
 //UPDATE OPERATIONS
-CamisaDao.prototype.atualizaCor = function(cor,callback) {
+CamisaDao.prototype.atualizaCor = function(camisa,callback) {
     this._connection.query('UPDATE cor_camisetas SET status = ? where id = ?', [cor.status, cor.id], callback);
 }
-CamisaDao.prototype.atualizaTipo = function(cor,callback) {
+CamisaDao.prototype.atualizaTipo = function(camisa,callback) {
     this._connection.query('UPDATE cor_camisetas SET status = ? where id = ?', [cor.status, cor.id], callback);
 }
-CamisaDao.prototype.atualizaTamanho = function(cor,callback) {
+CamisaDao.prototype.atualizaTamanho = function(camisa,callback) {
     this._connection.query('UPDATE cor_camisetas SET status = ? where id = ?', [cor.status, cor.id], callback);
 }
 
