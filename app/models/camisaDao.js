@@ -1,6 +1,14 @@
 function CamisaDao(connection) {
     this._connection = connection;
 }
+//register operations
+CamisaDao.prototype.cadastraCamisa = function(cor) {
+    this._connection.query('INSERT INTO camisetas (cor_id,tamanho_id,tip_id,quantidade) values(?,?,?,?)',cor.cor_id,cor.tamanho,cor.tip_id,cor.quantidade);
+}
+
+CamisaDao.prototype.atualizaCamisa = function(cor) {
+    this._connection.query('UPDATE camisetas (cor_id,tamanho_id,tip_id,quantidade) values(?,?,?,?)',cor.cor_id,cor.tamanho,cor.tip_id,cor.quantidade);
+}
 
 //SAVE OPERATIONS
 CamisaDao.prototype.salvaCor = function(cor,callback) {
