@@ -3,7 +3,18 @@ var app = express();
 var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var consign = require('consign')
+var jwt = require("jwt-simple");
+var payload = { foo: 'bar' };
+var secret = 'catssaymeow';
+
 consign().include('app').into(app);
+
+app.get('/sigin',function(req,res){
+
+  var token = jwt.encode(payload, secret);
+  res.json({"teste":token});
+  
+});
 
 
 app.post("/camisa/cad",function(req,res){
