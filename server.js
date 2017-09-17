@@ -9,11 +9,15 @@ var secret = 'catssaymeow';
 
 consign().include('app').into(app);
 
-app.get('/sigin',function(req,res){
-
+app.get('/users',function(req,res){
   var token = jwt.encode(payload, secret);
-  res.json({"teste":token});
+  var con = app.app.connectionFactory();
+  var usuarios = new app.app.models.userDao(con);
   
+  usuarios.buscaUser(function(err,result){
+    res.json(result);
+  })
+
 });
 
 
